@@ -1,0 +1,17 @@
+{
+  "Employees": {
+    "department": "string",
+    "name": "string",
+    "title": "string",
+    "salary": "int",
+    "vacations_taken": "int",
+    "employment_type": "string",
+    "createdAt": "date",
+    "updatedAt": "date",
+    "location": "Country"
+  },
+  "Country": {
+    "code": "string",
+    "name": "string"
+  }
+}
