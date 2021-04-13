@@ -4,10 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors')
-
 var indexRouter = require('./routes/index');
 var employeesRouter = require('./routes/employees');
-
+ 
 var app = express();
 app.use(cors())
 // view engine setup
