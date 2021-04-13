@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "user",
-    "password": "pass",
-    "database": "postgres",
-    "host": "localhost",
+    "username": "xvcpdccv", 
+    "password": "yhI-ggLBLXdbYY8-YD3HmHcM1VnAila4",
+    "database": "xvcpdccv",
+    "host": "queenie.db.elephantsql.com",
     "dialect": "postgresql"
   },
   "test": {

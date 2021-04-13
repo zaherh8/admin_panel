@@ -6,6 +6,7 @@
     "server-dev": "NODE_ENV=development nodemon ./bin/www -e ejs,js,css,html,jpg,png,scss",
     "server-prod": "NODE_ENV=production nodemon ./bin/www -e ejs,js,css,html,jpg,png,scss",
     "client": "cd ../admin_client && npm start",
+    "migrate": "sequelize db:migrate && sequelize db:seed:all",
     "dev": "concurrently --kill-others-on-fail \"npm run server-dev\" \"npm run client\"",
     "prod": "\"npm run server-dev\" \"npm run client\""
   },
