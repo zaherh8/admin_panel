@@ -17,12 +17,16 @@ module.exports = {
         let per_page = (array_range[1] - array_range[0]) + 1
         let offset = (array_range[0] % (per_page - 1)) * per_page
         let filter = JSON.parse(req.query.filter)
-        // this can be moved to a helper function to be used across controllers
+        // TODO this can be moved to a helper function to be used across controllers
+        // it should be more general and search across more data dynamically maybe rely on the model
+        // should add also cas insensitive
         if (typeof filter === 'object' && filter !== null && Object.keys(filter).length > 0) {
+            let search = '%' + filter.search + '%'
             filter = {
                 [Op.or]: {
-                    title: { [Op.like]: '%' + filter.search + '%' },
-                    email: { [Op.like]: '%' + filter.search + '%' }
+                    title: { [Op.like]: search },
+                    email: { [Op.like]: search },
+                    department: { [Op.like]: search }
                 }
             }
 
@@ -42,6 +46,7 @@ module.exports = {
                 res.set({
                     'Content-Type': 'application/json',
                     'Access-Control-Expose-Headers': 'Content-Range',
+                    // these are custom headers added as the front relies on them to handle the pagination
                     'Content-Range': 'employees ' + range + '/' + `${result.count}`
                 })
                 res.status(200).send(result.rows)
